@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoEnfer — L'Enfer d'Arvier · Cooperativa dal 1978 (Demo Concept)</title>
+  <meta name="description" content="Demo concept del nuovo sito CoEnfer — Coopérative de l'Enfer, Arvier, Valle d'Aosta. Vini rossi DOC di montagna, viticoltura eroica, 100% biologico.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta property="og:title" content="CoEnfer — L'Enfer d'Arvier · Demo Concept">
+  <meta property="og:description" content="L'inferno più bello delle Alpi. Vini DOC di viticoltura eroica dal 1978.">
+  <meta property="og:image" content="assets/img/territorio-vigneti.jpg">
+  <link rel="icon" type="image/png" href="assets/img/logo-icona.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/img/territorio-vigneti.jpg">
+  <link rel="stylesheet" href="css/style.css?v=2">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Salta al contenuto</a>
+
+  <!-- ============ PRELOADER ============ -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <svg class="loader-sun" viewBox="0 0 100 100" aria-hidden="true">
+        <g class="sun-rays">
+          <path d="M50 2 L54 18 L46 18 Z"/><path d="M50 98 L54 82 L46 82 Z"/>
+          <path d="M2 50 L18 46 L18 54 Z"/><path d="M98 50 L82 46 L82 54 Z"/>
+          <path d="M15 15 L28 25 L22 31 Z"/><path d="M85 85 L72 75 L78 69 Z"/>
+          <path d="M85 15 L75 28 L69 22 Z"/><path d="M15 85 L25 72 L31 78 Z"/>
+        </g>
+        <circle cx="50" cy="50" r="24" class="sun-core"/>
+      </svg>
+      <p class="loader-word" id="loaderWord">CO—ENFER</p>
+      <p class="loader-tag">ARVIER · VALLE D'AOSTA</p>
+    </div>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <button class="btn btn-menu" id="menuToggle" aria-expanded="false" aria-controls="menuOverlay">
+      <span class="burger" aria-hidden="true"><i></i><i></i></span>
+      <span class="btn-menu-label">Menu</span>
+    </button>
+
+    <a class="nav-logo" href="#top" aria-label="CoEnfer — torna su">
+      <img src="assets/img/logo-coenfer.png" alt="CoEnfer — Coopérative de l'Enfer" width="468" height="198">
+    </a>
+
+    <nav class="nav-right" aria-label="Azioni rapide">
+      <a class="btn btn-ghost" href="b2b.html">B2B</a>
+      <button class="btn btn-cart" id="cartToggle" aria-label="Apri carrello">
+        Carrello<span class="cart-count" id="cartCount">0</span>
+      </button>
+    </nav>
+  </header>
+
+  <a class="btn btn-float" href="#vini">Scopri i vini ↓</a>
+
+  <div class="demo-tag" aria-hidden="true">Demo&nbsp;Concept</div>
+
+  <!-- ============ MENU OVERLAY ============ -->
+  <div class="menu" id="menuOverlay" aria-hidden="true">
+    <div class="menu-inner">
+      <nav class="menu-links" aria-label="Menu principale">
+        <a href="#vini" class="menu-link" data-menu-close><span class="menu-num">01</span><span class="roll">I Vini</span></a>
+        <a href="#storia" class="menu-link" data-menu-close><span class="menu-num">02</span><span class="roll">La Storia</span></a>
+        <a href="#cooperativa" class="menu-link" data-menu-close><span class="menu-num">03</span><span class="roll">La Cooperativa</span></a>
+        <a href="b2b.html" class="menu-link"><span class="menu-num">04</span><span class="roll">Area B2B</span></a>
+        <a href="#futuro" class="menu-link" data-menu-close><span class="menu-num">05</span><span class="roll">Il Futuro</span></a>
+        <a href="#contatti" class="menu-link" data-menu-close><span class="menu-num">06</span><span class="roll">Contatti</span></a>
+      </nav>
+      <div class="menu-side">
+        <figure class="polaroid menu-polaroid">
+          <img src="assets/img/epoca-01.jpg" alt="Stand CoEnfer Arvier in una foto d'epoca" loading="lazy" width="1600" height="1200">
+          <figcaption>Arvier, anni '80</figcaption>
+        </figure>
+        <p class="menu-note">Insieme per la vite<br>dal 1978.</p>
+        <div class="menu-pills">
+          <a class="pill" href="https://coenfer.com" target="_blank" rel="noopener">coenfer.com attuale ↗</a>
+          <a class="pill" href="mailto:info@coenfer.it">info@coenfer.it</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CART DRAWER ============ -->
+  <div class="drawer-veil" id="drawerVeil" hidden></div>
+  <aside class="drawer" id="cartDrawer" aria-label="Carrello demo" aria-hidden="true">
+    <div class="drawer-head">
+      <h2 class="drawer-title">Il tuo cartone</h2>
+      <button class="btn btn-ico" id="cartClose" aria-label="Chiudi carrello">✕</button>
+    </div>
+    <p class="drawer-note pill pill-sun">Ambiente demo — nessun pagamento reale</p>
+    <ul class="drawer-list" id="cartList"></ul>
+    <p class="drawer-empty" id="cartEmpty">Il carrello è vuoto.<br>L'inferno, però, è pieno di tentazioni.</p>
+    <div class="drawer-foot">
+      <div class="drawer-total"><span>Totale</span><strong id="cartTotal">0,00&nbsp;€</strong></div>
+      <button class="btn btn-big btn-wine" id="cartCheckout">Vai alla cassa</button>
+      <p class="drawer-fine">Nella versione definitiva: pagamenti, spedizioni e fatturazione B2B collegati.</p>
+    </div>
+  </aside>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" aria-label="CoEnfer — L'Enfer d'Arvier">
+      <!-- forme memphis -->
+      <svg class="shape shape-sun" data-speed="0.55" viewBox="0 0 120 120" aria-hidden="true">
+        <g class="rot-slow">
+          <path d="M60 4 L66 24 L54 24 Z"/><path d="M60 116 L66 96 L54 96 Z"/>
+          <path d="M4 60 L24 54 L24 66 Z"/><path d="M116 60 L96 54 L96 66 Z"/>
+          <path d="M20 20 L36 30 L28 38 Z"/><path d="M100 100 L84 90 L92 82 Z"/>
+          <path d="M100 20 L90 36 L82 28 Z"/><path d="M20 100 L30 84 L38 92 Z"/>
+          <circle cx="60" cy="60" r="27"/>
+        </g>
+      </svg>
+      <svg class="shape shape-grape" data-speed="0.85" viewBox="0 0 120 140" aria-hidden="true">
+        <circle cx="40" cy="50" r="17"/><circle cx="78" cy="50" r="17"/>
+        <circle cx="59" cy="82" r="17"/><circle cx="40" cy="50" r="17"/>
+        <path class="leaf" d="M59 34 C56 16 70 8 88 12 C86 30 74 38 59 34 Z"/>
+      </svg>
+      <svg class="shape shape-bolt" data-speed="1.25" viewBox="0 0 90 130" aria-hidden="true">
+        <path d="M52 6 L16 72 L40 72 L30 124 L76 52 L50 52 Z"/>
+      </svg>
+      <svg class="shape shape-arc" data-speed="0.7" viewBox="0 0 130 130" aria-hidden="true">
+        <path d="M14 116 A 52 52 0 1 1 116 116 L92 116 A 28 28 0 1 0 38 116 Z" class="sprinkled"/>
+      </svg>
+      <svg class="shape shape-mount" data-speed="1.05" viewBox="0 0 150 110" aria-hidden="true">
+        <path d="M8 102 L58 14 L88 60 L108 30 L142 102 Z"/>
+        <path class="snow" d="M46 36 L58 14 L70 34 L62 32 L54 40 Z"/>
+      </svg>
+      <svg class="shape shape-glass" data-speed="0.9" viewBox="0 0 90 130" aria-hidden="true">
+        <path d="M14 8 L76 8 C76 44 62 58 50 60 L50 106 L68 106 L68 120 L22 120 L22 106 L40 106 L40 60 C28 58 14 44 14 8 Z"/>
+        <path class="wine-fill" d="M20 22 L70 22 C68 42 58 52 45 54 C32 52 22 42 20 22 Z"/>
+      </svg>
+
+      <div class="hero-stage">
+        <figure class="hero-card" id="heroCard">
+          <img class="hero-img" src="assets/img/territorio-vigneti.jpg"
+               alt="La torre medievale di Arvier tra i vigneti terrazzati dell'Enfer" width="1700" height="1133" fetchpriority="high">
+          <figcaption class="hero-caption pill">Anfiteatro de l'Enfer · Arvier (AO)</figcaption>
+        </figure>
+        <div class="hero-badge" aria-hidden="true">
+          <svg class="badge-spin" viewBox="0 0 120 120">
+            <defs><path id="circ" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+            <circle cx="60" cy="60" r="56" class="badge-bg"/>
+            <text><textPath href="#circ">DOC DAL 1972 ✷ ENFER D'ARVIER ✷ 100% BIO ✷ </textPath></text>
+          </svg>
+          <img class="badge-core" src="assets/img/logo-icona.png" alt="" width="512" height="512">
+        </div>
+
+        <h1 class="hero-title" aria-label="L'Enfer d'Arvier">
+          <span class="hero-word" id="heroWord">ENFER</span>
+          <span class="hero-sub">
+            <span class="pill pill-sun">L'inferno più bello delle Alpi</span>
+            <span class="pill pill-paper">800 m s.l.m.</span>
+          </span>
+        </h1>
+      </div>
+
+      <p class="hero-hint" aria-hidden="true">Scendete all'inferno ↓</p>
+    </section>
+
+    <!-- ============ STATEMENT ============ -->
+    <section class="statement" aria-label="Chi siamo in una frase">
+      <h2 class="display split" data-split>
+        <span class="line">Insieme per la <em class="c-wine">vite</em></span>
+        <span class="line">dal <em class="c-fire">1978.</em></span>
+      </h2>
+      <p class="statement-sub split" data-split>
+        <span class="line">Immergetevi nel cuore dell'anfiteatro</span>
+        <span class="line">più <em class="c-fire">caldo</em> delle Alpi.</span>
+      </p>
+      <p class="statement-body reveal">
+        Cento soci, sette ettari a picco sulla Dora, pendenze oltre il 100%.
+        Ad Arvier il sole picchia così forte che questo posto lo chiamano
+        <strong>Enfer</strong>&nbsp;—&nbsp;inferno. Noi ci facciamo il vino. Biologico, ovviamente:
+        la più estesa realtà bio di tutta la Valle&nbsp;d'Aosta.
+      </p>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee marquee-ink" aria-hidden="true">
+      <div class="marquee-track" data-marquee>
+        <div class="marquee-chunk">
+          <span>Enfer d'Arvier</span><i>✷</i><span>DOC dal 1972</span><i>✷</i>
+          <span>Viticoltura eroica</span><i>✷</i><span>800 m s.l.m.</span><i>✷</i>
+          <span>100% biologico</span><i>✷</i><span>Petit Rouge</span><i>✷</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ VINI ============ -->
+    <section class="vini" id="vini">
+      <header class="section-head">
+        <p class="eyebrow pill pill-wine">La cantina</p>
+        <h2 class="display split" data-split>
+          <span class="line">La famiglia</span>
+          <span class="line"><em class="c-wine">Enfer</em></span>
+        </h2>
+        <p class="section-sub reveal">Quattro rossi e una bollicina di montagna. Trentacinque–quarantamila bottiglie l'anno, non una di più: l'inferno è un posto esclusivo.</p>
+      </header>
+
+      <div class="vini-rail-wrap">
+        <div class="vini-rail" id="viniRail">
+          <article class="wine-card wc-wine" data-wine="enfer">
+            <div class="wine-frame"><img src="assets/img/vino-enfer.jpg" alt="Bottiglia di Enfer — Vallée d'Aoste DOC Enfer d'Arvier" loading="lazy" width="1414" height="2000"></div>
+            <div class="wine-info">
+              <p class="wine-num">[01]</p>
+              <h3 class="wine-name">Enfer</h3>
+              <p class="wine-meta">Vallée d'Aoste DOC · 95% Petit Rouge · 12,5% vol</p>
+              <p class="wine-desc">Il classico. Rubino intenso, frutta matura sotto spirito, 12 mesi in tonneaux di rovere.</p>
+              <div class="wine-buy">
+                <span class="wine-price">23&nbsp;€</span>
+                <button class="btn btn-add" data-add="enfer">Aggiungi</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="wine-card wc-rose" data-wine="triskell">
+            <span class="wine-award pill pill-sun">Oro · Mondial des Vins Extrêmes 2025</span>
+            <div class="wine-frame"><img src="assets/img/vino-triskell.jpg" alt="Bottiglia di Triskell — metodo classico da uve Mayolet" loading="lazy" width="1414" height="2000"></div>
+            <div class="wine-info">
+              <p class="wine-num">[02]</p>
+              <h3 class="wine-name">Triskell</h3>
+              <p class="wine-meta">Metodo classico · 100% Mayolet · 12% vol</p>
+              <p class="wine-desc">36 mesi sui lieviti, remuage a mano su pupitres. Le bollicine nate all'inferno.</p>
+              <div class="wine-buy">
+                <span class="wine-price">24&nbsp;€</span>
+                <button class="btn btn-add" data-add="triskell">Aggiungi</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="wine-card wc-fire" data-wine="clos">
+            <div class="wine-frame"><img src="assets/img/vino-clos-de-lenfer.jpg" alt="Bottiglia di Clos de l'Enfer" loading="lazy" width="1414" height="2000"></div>
+            <div class="wine-info">
+              <p class="wine-num">[03]</p>
+              <h3 class="wine-name">Clos de l'Enfer</h3>
+              <p class="wine-meta">100% Petit Rouge · 14% vol · 20 mesi in tonneaux</p>
+              <p class="wine-desc">Un terzo delle uve appassisce 30 giorni. Marmellata di ciliegie, cuoio, cioccolato fondente.</p>
+              <div class="wine-buy">
+                <span class="wine-price">30&nbsp;€</span>
+                <button class="btn btn-add" data-add="clos">Aggiungi</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="wine-card wc-ink" data-wine="digne">
+            <div class="wine-frame"><img src="assets/img/vino-digne-du-pape.jpg" alt="Bottiglia di Digne du Pape" loading="lazy" width="1414" height="2000"></div>
+            <div class="wine-info">
+              <p class="wine-num">[04]</p>
+              <h3 class="wine-name">Digne du Pape</h3>
+              <p class="wine-meta">Petit Rouge in purezza · 14,5% vol · appassimento 100%</p>
+              <p class="wine-desc">Il gioiello. Vigneto a 750 metri, lieviti indigeni, 24 mesi di tonneaux. Degno di un papa.</p>
+              <div class="wine-buy">
+                <span class="wine-price">41&nbsp;€</span>
+                <button class="btn btn-add" data-add="digne">Aggiungi</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="wine-card wc-vine" data-wine="seigneur">
+            <div class="wine-frame"><img src="assets/img/vino-seigneur-mayolet.jpg" alt="Bottiglia di Vin des Seigneurs — Mayolet" loading="lazy" width="682" height="1024"></div>
+            <div class="wine-info">
+              <p class="wine-num">[05]</p>
+              <h3 class="wine-name">Seigneur Mayolet</h3>
+              <p class="wine-meta">Autoctono Mayolet · Avise</p>
+              <p class="wine-desc">Coltivato ai piedi di due manieri medievali. Tiratura minuscola, va chiesto in cantina.</p>
+              <div class="wine-buy">
+                <span class="wine-price">Su richiesta</span>
+                <a class="btn btn-add" href="mailto:info@coenfer.it?subject=Seigneur%20Mayolet">Scrivici</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="rail-nav" aria-hidden="true">
+          <button class="btn btn-ico" id="railPrev" aria-label="Vino precedente">←</button>
+          <button class="btn btn-ico" id="railNext" aria-label="Vino successivo">→</button>
+        </div>
+      </div>
+
+      <!-- indice vini -->
+      <div class="wine-index" id="wineIndex">
+        <a class="wi-row" href="#vini" data-preview="assets/img/vino-enfer.jpg" data-add="enfer">
+          <span class="wi-num">[01]</span><span class="wi-name">Enfer</span><span class="wi-tag">il classico DOC</span><span class="wi-price">23&nbsp;€</span>
+        </a>
+        <a class="wi-row" href="#vini" data-preview="assets/img/vino-triskell.jpg" data-add="triskell">
+          <span class="wi-num">[02]</span><span class="wi-name">Triskell</span><span class="wi-tag">metodo classico</span><span class="wi-price">24&nbsp;€</span>
+        </a>
+        <a class="wi-row" href="#vini" data-preview="assets/img/vino-clos-de-lenfer.jpg" data-add="clos">
+          <span class="wi-num">[03]</span><span class="wi-name">Clos de l'Enfer</span><span class="wi-tag">appassimento 30%</span><span class="wi-price">30&nbsp;€</span>
+        </a>
+        <a class="wi-row" href="#vini" data-preview="assets/img/vino-digne-du-pape.jpg" data-add="digne">
+          <span class="wi-num">[04]</span><span class="wi-name">Digne du Pape</span><span class="wi-tag">il gioiello</span><span class="wi-price">41&nbsp;€</span>
+        </a>
+        <a class="wi-row" href="#vini" data-preview="assets/img/vino-seigneur-mayolet.jpg" data-add="">
+          <span class="wi-num">[05]</span><span class="wi-name">Seigneur Mayolet</span><span class="wi-tag">tiratura minuscola</span><span class="wi-price">—</span>
+        </a>
+        <img class="wi-preview" id="wiPreview" src="assets/img/vino-enfer.jpg" alt="" aria-hidden="true" width="1414" height="2000">
+      </div>
+    </section>
+
+    <!-- ============ LEGGENDA ============ -->
+    <section class="leggenda" id="storia">
+      <div class="leggenda-inner">
+        <header class="section-head">
+          <p class="eyebrow pill pill-paper">La leggenda</p>
+          <h2 class="display split" data-split>
+            <span class="line">«Il soufre</span>
+            <span class="line">à <em class="c-wine">l'enfer»</em></span>
+          </h2>
+          <p class="legend-quote">— la domestica del parroco, ad Arvier, qualche secolo fa</p>
+        </header>
+
+        <div class="leggenda-copy reveal">
+          <p>Due viandanti chiedono del parroco. La risposta è un rebus: <em>«soffre all'inferno»</em>, oppure <em>«è all'Enfer, a dare lo zolfo»</em>. Con tutta probabilità era lì, a lavorare le vigne dell'anfiteatro: piena esposizione a sud, microclima rovente, 800 metri di quota. Un inferno, appunto. Dal 1312 — quando Rodolphus de Avisio già possedeva vigneti in zona — qui non si è mai smesso di fare vino.</p>
+        </div>
+
+        <div class="polaroid-wall">
+          <figure class="polaroid p1"><img src="assets/img/epoca-02.jpg" alt="Degustazione Enfer d'Arvier in costume tradizionale, foto d'epoca" loading="lazy" width="1578" height="1600"><figcaption>La sala regioni, anni '80</figcaption></figure>
+          <figure class="polaroid p2"><img src="assets/img/epoca-01.jpg" alt="Stand CO-ENFER Arvier con bottiglie, foto d'epoca" loading="lazy" width="1600" height="1200"><figcaption>Lo stand della cooperativa</figcaption></figure>
+          <figure class="polaroid p3"><img src="assets/img/epoca-03.jpg" alt="Foto d'epoca della cooperativa CoEnfer" loading="lazy" width="1200" height="1600"><figcaption>Archivio CoEnfer</figcaption></figure>
+          <figure class="polaroid p4"><img src="assets/img/epoca-04.jpg" alt="Foto d'epoca della cooperativa CoEnfer" loading="lazy" width="1200" height="1600"><figcaption>Archivio CoEnfer</figcaption></figure>
+          <figure class="polaroid p5"><img src="assets/img/epoca-05.jpg" alt="Foto d'epoca dei festeggiamenti CoEnfer" loading="lazy" width="1600" height="1529"><figcaption>50 anni di DOC, 2022</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TIMELINE ORIZZONTALE ============ -->
+    <section class="timeline" aria-label="700 anni di storia">
+      <div class="tl-pin">
+        <header class="tl-head">
+          <h2 class="display"><span class="c-fire">700 anni</span> d'inferno</h2>
+          <p class="tl-hint" aria-hidden="true">Continuate a scrollare →</p>
+        </header>
+        <div class="tl-track" id="tlTrack">
+          <article class="tl-card">
+            <p class="tl-year">1312</p>
+            <div class="tl-media"><img src="assets/img/territorio-vigneti.jpg" alt="I vigneti terrazzati dell'Enfer con la torre medievale" loading="lazy" width="1700" height="1133"></div>
+            <h3 class="tl-title">Le prime vigne</h3>
+            <p class="tl-text">Rodolphus de Avisio possiede vigneti nell'attuale zona dell'Enfer. A Liverogne si produce vino pregiato da almeno 700 anni.</p>
+          </article>
+          <article class="tl-card tl-card-graphic tg-wine">
+            <p class="tl-year">1494</p>
+            <div class="tl-media tl-doodle" aria-hidden="true">
+              <svg viewBox="0 0 200 140">
+                <path class="d-ink" d="M60 18 L140 18 L134 34 L106 34 L106 44 C130 48 144 62 146 84 L54 84 C56 62 70 48 94 44 L94 34 L66 34 Z" transform="translate(0,26)"/>
+                <path class="d-sun" d="M40 40 L52 18 L64 34 L76 12 L88 36 L100 10 L112 36 L124 12 L136 34 L148 18 L160 40 L152 52 L48 52 Z" transform="translate(0,-6) scale(0.9)"/>
+              </svg>
+            </div>
+            <h3 class="tl-title">Un vino da re</h3>
+            <p class="tl-text">Giorgio di Challant accoglie Carlo VIII di Francia con abbondanti libagioni di Enfer. Il re approva.</p>
+          </article>
+          <article class="tl-card">
+            <p class="tl-year">1972</p>
+            <div class="tl-media"><img src="assets/img/epoca-01.jpg" alt="Stand storico CO-ENFER Arvier" loading="lazy" width="1600" height="1200"></div>
+            <h3 class="tl-title">La DOC</h3>
+            <p class="tl-text">Il 2 giugno l'Enfer d'Arvier è tra i primi vini valdostani a ottenere la Denominazione di Origine Controllata.</p>
+          </article>
+          <article class="tl-card">
+            <p class="tl-year">1978</p>
+            <div class="tl-media"><img src="assets/img/epoca-02.jpg" alt="Festa della cooperativa in costume tradizionale" loading="lazy" width="1578" height="1600"></div>
+            <h3 class="tl-title">Nasce CoEnfer</h3>
+            <p class="tl-text">Un centinaio di soci di Arvier e Avise mettono insieme le vigne: la cooperativa gestisce tutto, dal grappolo alla bottiglia.</p>
+          </article>
+          <article class="tl-card tl-card-graphic tg-vine">
+            <p class="tl-year">2012</p>
+            <div class="tl-media tl-doodle" aria-hidden="true">
+              <svg viewBox="0 0 200 140">
+                <path class="d-vine" d="M100 128 C96 96 96 72 100 48 M100 48 C82 44 70 30 68 12 C88 14 100 26 100 48 M100 68 C118 64 130 50 132 32 C112 34 100 46 100 68" fill="none"/>
+                <circle class="d-sun" cx="152" cy="28" r="16"/>
+                <circle class="d-ink" cx="60" cy="96" r="10"/><circle class="d-ink" cx="84" cy="104" r="10"/><circle class="d-ink" cx="70" cy="116" r="10"/>
+              </svg>
+            </div>
+            <h3 class="tl-title">La svolta bio</h3>
+            <p class="tl-text">Sara Patat, presidente, converte tutta la superficie vitata al biologico certificato. Oggi è la realtà bio più estesa della regione.</p>
+          </article>
+          <article class="tl-card">
+            <p class="tl-year">Oggi</p>
+            <div class="tl-media"><img src="assets/img/cantina-interno.jpg" alt="La sede della cooperativa CoEnfer ad Arvier" loading="lazy" width="924" height="693"></div>
+            <h3 class="tl-title">L'inferno continua</h3>
+            <p class="tl-text">50+ anni di DOC, marchio di qualità del Parco Gran Paradiso, una medaglia d'oro al Mondial des Vins Extrêmes 2025.</p>
+          </article>
+          <article class="tl-card tl-card-cta">
+            <p class="tl-year">2027</p>
+            <div class="tl-cta-body">
+              <h3 class="tl-title">E domani?</h3>
+              <p class="tl-text">B2B, e-commerce, vini dei partner.<br>La storia la scriviamo ancora.</p>
+              <a class="btn" href="#futuro" data-tl-cta>Il futuro ↓</a>
+            </div>
+          </article>
+        </div>
+        <div class="tl-progress" aria-hidden="true"><i id="tlBar"></i></div>
+      </div>
+    </section>
+
+    <!-- ============ COOPERATIVA / NUMERI ============ -->
+    <section class="coop" id="cooperativa">
+      <header class="section-head">
+        <p class="eyebrow pill pill-vine">La cooperativa</p>
+        <h2 class="display split" data-split>
+          <span class="line">Eroici è dir</span>
+          <span class="line"><em class="c-fire">poco.</em></span>
+        </h2>
+      </header>
+      <div class="coop-grid">
+        <figure class="coop-photo sticker-card">
+          <img src="assets/img/cantina-persone.jpg" alt="I soci della cooperativa in cantina" loading="lazy" width="924" height="693">
+          <figcaption class="pill">La vendemmia si fa ancora a mano</figcaption>
+        </figure>
+        <div class="stats">
+          <div class="stat st-sun"><strong class="stat-num" data-count="100">0</strong><span class="stat-suffix">soci</span><p>conferiscono uve da Arvier e Avise</p></div>
+          <div class="stat st-rose"><strong class="stat-num" data-count="7">0</strong><span class="stat-suffix">ettari</span><p>terrazzati, lavorati quasi tutto a mano</p></div>
+          <div class="stat st-fire"><strong class="stat-num" data-count="100">0</strong><span class="stat-suffix">% pendenza</span><p>nei tratti più ripidi dell'anfiteatro</p></div>
+          <div class="stat st-paper"><strong class="stat-num" data-count="40">0</strong><span class="stat-suffix">mila bottiglie</span><p>all'anno. Un prodotto di nicchia, per scelta</p></div>
+          <div class="stat st-vine"><strong class="stat-num" data-count="100">0</strong><span class="stat-suffix">% biologico</span><p>certificato: vigna, cantina, testa</p></div>
+          <div class="stat st-sky"><strong class="stat-num" data-count="800">0</strong><span class="stat-suffix">m s.l.m.</span><p>di viticoltura eroica esposta a sud</p></div>
+        </div>
+      </div>
+      <div class="vitigni reveal">
+        <p class="vitigni-label">I vitigni autoctoni:</p>
+        <span class="pill pill-wine">Petit Rouge — 85%</span>
+        <span class="pill pill-vine">Fumin</span>
+        <span class="pill pill-rose">Mayolet</span>
+        <span class="pill pill-paper">Pinot Noir</span>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE 2 ============ -->
+    <div class="marquee marquee-wine" aria-hidden="true">
+      <div class="marquee-track" data-marquee data-marquee-reverse>
+        <div class="marquee-chunk">
+          <span>Petit Rouge</span><i>✷</i><span>Fumin</span><i>✷</i><span>Mayolet</span><i>✷</i>
+          <span>Parco Gran Paradiso</span><i>✷</i><span>Bio certificato</span><i>✷</i>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ B2B ============ -->
+    <section class="b2b" id="b2b">
+      <div class="b2b-inner">
+        <div class="b2b-copy">
+          <p class="eyebrow pill pill-sun">Per ristoranti, enoteche e distributori</p>
+          <h2 class="display split split-light" data-split>
+            <span class="line">L'inferno,</span>
+            <span class="line">riservato a <em class="c-sun">voi.</em></span>
+          </h2>
+          <p class="b2b-text reveal">
+            Nella nuova <strong>area B2B</strong> ogni cliente professionale entra con le proprie credenziali e trova
+            listini dedicati, ordini rapidi a cartoni, schede tecniche e storico. Senza telefonate, senza fogli Excel.
+          </p>
+          <ul class="b2b-list reveal">
+            <li>Listini riservati per fascia cliente</li>
+            <li>Riordino in tre click, multipli da 6</li>
+            <li>Schede tecniche e materiali scaricabili</li>
+            <li>Pronta per i vini dei partner, quando vorrete</li>
+          </ul>
+          <div class="b2b-cta">
+            <a class="btn btn-big btn-sun" href="b2b.html">Entra nell'area riservata →</a>
+            <p class="b2b-hint">Ambiente demo: si entra con qualsiasi email e password.</p>
+          </div>
+        </div>
+        <a class="b2b-shot" href="b2b.html" aria-label="Anteprima dell'area riservata B2B">
+          <div class="b2b-mock sticker-card" id="b2bMock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>coenfer.com/b2b</span></div>
+            <div class="mock-body">
+              <p class="mock-hello">Ciao, Enoteca Alpina 👋<span class="pill pill-sun">Listino Horeca</span></p>
+              <div class="mock-row"><span>Enfer DOC ×12</span><b>187,20&nbsp;€</b></div>
+              <div class="mock-row"><span>Triskell ×6</span><b>115,20&nbsp;€</b></div>
+              <div class="mock-row mock-row-add"><span>+ Digne du Pape</span><b>33,80&nbsp;€/bott.</b></div>
+              <div class="mock-foot"><span>Totale ordine</span><b>302,40&nbsp;€</b></div>
+              <div class="mock-btn">Invia ordine</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ FUTURO / CONTO TERZI ============ -->
+    <section class="futuro" id="futuro">
+      <header class="section-head">
+        <p class="eyebrow pill pill-fire">Conto terzi &amp; marketplace</p>
+        <h2 class="display split" data-split>
+          <span class="line">Oggi il nostro vino.</span>
+          <span class="line">Domani, anche il <em class="c-wine">loro.</em></span>
+        </h2>
+        <p class="section-sub reveal">
+          In cantina vinifichiamo anche <strong>conto terzi</strong> per altri produttori dell'anfiteatro.
+          Il nuovo sito nasce già <strong>multi-produttore</strong>: quando deciderete di vendere i loro vini,
+          basterà accendere un interruttore. Niente rifacimenti, nessun trasloco.
+        </p>
+      </header>
+
+      <div class="futuro-grid">
+        <figure class="futuro-photo sticker-card">
+          <img src="assets/img/vigna-01.jpg" alt="Cassa in legno con i vini dei produttori dell'Enfer d'Arvier" loading="lazy" width="1080" height="1080">
+          <figcaption class="pill">L'anfiteatro è di tutti: i produttori dell'Enfer</figcaption>
+        </figure>
+        <div class="futuro-cards">
+          <article class="soon-card sc-1"><p class="soon-year">Fase 2 · 2026</p><h3>Area B2B live</h3><p>Accessi reali, listini collegati al gestionale, ordini via email o API.</p></article>
+          <article class="soon-card sc-2"><p class="soon-year">Fase 3 · 2027</p><h3>Vini dei partner</h3><p>Catalogo multi-cantina: ogni produttore con la sua pagina, il suo listino, il suo racconto.</p></article>
+          <article class="soon-card sc-3 soon-card-ghost"><p class="soon-year">Partner</p><h3>?</h3><p>Spazio riservato al prossimo produttore dell'anfiteatro.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VIDEO ============ -->
+    <section class="video-sec" aria-label="La cooperativa in video">
+      <div class="video-card sticker-card" id="videoCard" data-video-id="ay-cP7jHNzg">
+        <img src="https://i.ytimg.com/vi/ay-cP7jHNzg/hqdefault.jpg" alt="Anteprima video: la cooperativa CoEnfer" loading="lazy" width="480" height="360">
+        <button class="video-play btn" id="videoPlay" aria-label="Riproduci il video della cooperativa">▶&nbsp;&nbsp;Guarda l'inferno</button>
+        <p class="video-note pill pill-paper">Video ufficiale CoEnfer · YouTube</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTATTI ============ -->
+    <section class="contatti" id="contatti">
+      <header class="section-head">
+        <p class="eyebrow pill pill-sky">Dove siamo</p>
+        <h2 class="display split" data-split>
+          <span class="line">Venite a trovarci</span>
+          <span class="line">all'<em class="c-fire">inferno.</em></span>
+        </h2>
+      </header>
+      <div class="contatti-grid">
+        <figure class="contatti-photo sticker-card">
+          <img src="assets/img/cantina-aerea.jpg" alt="Vista aerea di Arvier e della valle della Dora Baltea" loading="lazy" width="924" height="571">
+          <figcaption class="pill">Arvier, vista dall'alto</figcaption>
+        </figure>
+        <div class="contatti-cards">
+          <div class="c-card">
+            <h3>La cantina</h3>
+            <p>CoEnfer Coopérative de l'Enfer<br>Via Corrado Gex, 52<br>11011 Arvier · Valle d'Aosta</p>
+            <div class="c-pills">
+              <a class="pill" href="tel:+39016599238">+39 0165 99238</a>
+              <a class="pill" href="mailto:info@coenfer.it">info@coenfer.it</a>
+            </div>
+          </div>
+          <div class="c-card">
+            <h3>Punto vendita</h3>
+            <table class="orari" aria-label="Orari di apertura">
+              <tr><td>Lun</td><td>15:00–18:00</td></tr>
+              <tr><td>Gio</td><td>10:00–13:00 · 15:00–18:00</td></tr>
+              <tr><td>Sab</td><td>10:00–13:00 · 14:00–18:00</td></tr>
+              <tr><td>Altri giorni</td><td>su appuntamento</td></tr>
+            </table>
+          </div>
+          <a class="btn btn-big btn-wine c-cta" href="https://maps.google.com/?q=CoEnfer+Arvier" target="_blank" rel="noopener">Portami all'inferno ↗</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="marquee marquee-footer" aria-hidden="true">
+      <div class="marquee-track" data-marquee>
+        <div class="marquee-chunk">
+          <span>Insieme per la vite</span><i>✷</i><span>dal 1978</span><i>✷</i>
+        </div>
+      </div>
+    </div>
+    <p class="footer-giant" id="footerGiant" aria-hidden="true">CO—ENFER</p>
+    <div class="footer-grid">
+      <div class="f-col">
+        <p class="f-title">CoEnfer soc. coop.</p>
+        <p>Via Corrado Gex, 52<br>11011 Arvier (AO)<br>P.IVA 00143190072</p>
+      </div>
+      <div class="f-col">
+        <p class="f-title">Contatti</p>
+        <p><a href="tel:+39016599238">+39 0165 99238</a><br><a href="mailto:info@coenfer.it">info@coenfer.it</a></p>
+      </div>
+      <div class="f-col">
+        <p class="f-title">Seguiteci</p>
+        <p><a href="https://www.facebook.com/coenfer" target="_blank" rel="noopener">Facebook ↗</a><br><a href="https://www.instagram.com/coenfer_arvier" target="_blank" rel="noopener">Instagram ↗</a></p>
+      </div>
+      <div class="f-col">
+        <p class="f-title">Area riservata</p>
+        <p><a href="b2b.html">Accesso B2B →</a><br><a href="#vini">Lo shop →</a></p>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <p>Demo concept non ufficiale, realizzata a scopo dimostrativo con immagini e contenuti © CoEnfer.</p>
+      <p>Concept &amp; sviluppo — <a href="https://lucsal.it" target="_blank" rel="noopener">Luca Salvemini</a></p>
+    </div>
+  </footer>
+
+  <!-- toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="js/main.js?v=2" defer></script>
+</body>
+</html>
