@@ -403,18 +403,63 @@
   /* ---------- indice vini: preview che segue il mouse ---------- */
   if (hoverFine) {
     const prev = $("#wiPreview");
-    gsap.set(prev, { autoAlpha: 0, scale: 0.7, rotation: 5 });
+    const index = $("#wineIndex");
+    gsap.set(prev, { autoAlpha: 0, scale: 0.7, rotation: 5, x: 0, y: 0 });
+
     const xTo = gsap.quickTo(prev, "x", { duration: 0.35, ease: "power3" });
     const yTo = gsap.quickTo(prev, "y", { duration: 0.35, ease: "power3" });
-    const index = $("#wineIndex");
-    index.addEventListener("mousemove", (e) => { xTo(e.clientX + 30); yTo(e.clientY - 120); });
-    $$(".wi-row").forEach((row) => {
-      row.addEventListener("mouseenter", () => {
-        prev.src = row.dataset.preview;
+
+    // posizione del puntatore sempre nota, anche prima del primo hover
+    let px = 0, py = 0, known = false, visible = false;
+
+    // tiene l'anteprima dentro lo schermo
+    const place = (instant) => {
+      const w = prev.offsetWidth || 170, h = prev.offsetHeight || 240;
+      const x = gsap.utils.clamp(8, window.innerWidth - w - 8, px + 30);
+      const y = gsap.utils.clamp(8, window.innerHeight - h - 8, py - 120);
+      if (instant) gsap.set(prev, { x, y });
+      else { xTo(x); yTo(y); }
+    };
+
+    const show = (row) => {
+      if (!known) return;               // niente da mostrare finché non sappiamo dov'è il mouse
+      prev.src = row.dataset.preview;
+      if (!visible) {
+        visible = true;
+        place(true);                    // piazzala subito sotto il cursore: mai più l'angolo in alto a sinistra
         gsap.to(prev, { autoAlpha: 1, scale: 1, rotation: gsap.utils.random(-6, 6), duration: 0.35, ease: "back.out(2)" });
-      });
-    });
-    index.addEventListener("mouseleave", () => gsap.to(prev, { autoAlpha: 0, scale: 0.7, duration: 0.3 }));
+      }
+    };
+
+    const hide = () => {
+      if (!visible) return;
+      visible = false;
+      gsap.to(prev, { autoAlpha: 0, scale: 0.7, duration: 0.25, ease: "power2.out" });
+    };
+
+    // sorgente di verità: cosa c'è davvero sotto il puntatore
+    const sync = () => {
+      if (!known) return;
+      const row = document.elementFromPoint(px, py)?.closest(".wi-row");
+      if (row) show(row); else hide();
+    };
+
+    window.addEventListener("pointermove", (e) => {
+      if (e.pointerType !== "mouse") return;
+      px = e.clientX; py = e.clientY; known = true;
+      const row = e.target.closest(".wi-row");
+      if (row) { show(row); place(false); }
+      else hide();                      // rete di sicurezza se mouseleave non scatta
+    }, { passive: true });
+
+    // col mouse fermo la pagina scorre sotto: ricontrolla cosa c'è sotto il cursore
+    window.addEventListener("scroll", () => { if (visible || known) sync(); }, { passive: true });
+    index.addEventListener("pointerleave", hide);
+    // puntatore fuori dalla finestra, tab in background, menu/carrello aperti
+    document.addEventListener("pointerleave", hide);
+    window.addEventListener("blur", hide);
+    document.addEventListener("visibilitychange", hide);
+    window.addEventListener("resize", hide);
   }
 
   /* ---------- b2b: tilt del mock ---------- */
